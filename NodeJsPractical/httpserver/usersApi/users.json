@@ -1,0 +1,30 @@
+[
+    {
+        "id": "1",
+        "name": "Ravi",
+        "age": "25",
+        "email": "rmule1996@gmail.com",
+        "contact": "9819671027",
+        "address": {
+            "address1": "Room no 1, sariput nagar",
+            "address2": "JV Link Road, andheri East",
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "pincode": "400093"
+        }
+    },
+    {
+        "id": "2",
+        "name": "Chaitu",
+        "age": "25",
+        "email": "chaitali.kurangale@gmail.com",
+        "contact": "9833662598",
+        "address": {
+            "address1": "Room no 302, Shiv sai building",
+            "address2": "JP Road, Panvel",
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "pincode": "411234"
+        }
+    }
+]
