@@ -24,6 +24,11 @@ router.post("/employees/register", async(req, res) => {
 
             const token = await registerEmployee.generateAuthToken();
 
+            res.cookie('jwt', token, {
+                expires: new Date(Date.now() + 30000),
+                httpOnly: true
+            });
+            console.log()
             const registered = await registerEmployee.save();
             res.status(201).send(registered);
             return;
@@ -36,7 +41,6 @@ router.post("/employees/register", async(req, res) => {
         res.status(400).send(e);
     }
 });
-
 
 // user login
 
@@ -51,6 +55,12 @@ router.post("/employees/login", async(req, res) => {
 
         const token = await userData.generateAuthToken();
 
+        res.cookie('jwt', token, {
+            expires: new Date(Date.now() + 600000),
+            httpOnly: true,
+            // secure: true /* this will work in https */
+        });
+
         if(isMatch) {
             res.status(200).send("Login successful...!")
         }
@@ -61,6 +71,10 @@ router.post("/employees/login", async(req, res) => {
     catch(e) {
         res.status(400).send(e);
     }
+});
+
+router.get("/employees/secret", (req, res) => {
+    console.log("your cookie is: ", req.cookies.jwt);
 });
 
 module.exports = router;
